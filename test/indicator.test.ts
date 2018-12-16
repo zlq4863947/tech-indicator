@@ -1,4 +1,4 @@
-import { IchimokuCloud, IchimokuCloudInput } from '../src';
+import { IchimokuCloud, IchimokuCloudInput, SMA } from '../src';
 import * as assert from 'power-assert';
 
 describe('技术指标测试', () => {
@@ -343,5 +343,33 @@ describe('技术指标测试', () => {
     };
     const result = IchimokuCloud.calculate(input);
     console.log('%s\n...\n%s', JSON.stringify(result[0], null, 2), JSON.stringify(result[result.length - 1], null, 2));
+  });
+  it.only('sma', async () => {
+    const close = [
+      127.75,
+      129.02,
+      132.75,
+      145.4,
+      148.98,
+      137.52,
+      147.38,
+      139.05,
+      137.23,
+      149.3,
+      162.45,
+      178.95,
+      200.35,
+      221.9,
+      243.23,
+      243.52,
+      286.42,
+      280.27,
+    ];
+    const input = {
+      period: 5,
+      values: close,
+    };
+    const result = SMA.calculate(input);
+    console.log(JSON.stringify(result));
   });
 });

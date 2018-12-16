@@ -19,8 +19,6 @@ export class IchimokuCloudOutput {
 }
 
 export class IchimokuCloud extends Indicator {
-  // result: IchimokuCloudOutput[];
-  // generator: IterableIterator<IchimokuCloudOutput | undefined>;
   static calculate(input: IchimokuCloudInput) {
     this.reverseInputs(input);
     const results: IchimokuCloudOutput[] = [];
